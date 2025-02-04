@@ -1,54 +1,59 @@
 # Borregos_FBA Project
 
-## Overview
-The Borregos_FBA project is designed to manage data for a collegiate American football team. It includes a MySQL database to store player information, physical test results, and biometric measurements.
+## Introduction
+As a data engineer, I embarked on a project to create a comprehensive database for a collegiate American football team. The primary goal was to consolidate nine years of accumulated data from various Excel files into a structured MySQL database. These files contained general information about the student-athletes, results from speed and strength tests, and biometric measurements.
+
+## Problem Statement
+The challenge was to manage and analyze a vast amount of data stored in disparate Excel files. The data included general student-athlete information, speed and strength test results, and biometric measurements. The objective was to create a robust database that could be easily updated and queried for insights.
+
+## Impact
+By consolidating the data into a single database, we aimed to streamline data management and enable comprehensive analysis. This would facilitate better decision-making in player recruitment, performance evaluation, and future projections.
+
+## Solution
+I designed and implemented a MySQL database with tables tailored to store player information, physical test results, and biometric measurements. The database schema was designed to be flexible, allowing for future modifications and additions of important fields. Python scripts were developed to populate and update the tables, ensuring data integrity and consistency.
+
+## Data Set
+The dataset comprised:
+- General information about the student-athletes (players.csv)
+- Results from speed and strength tests (physical_tests.csv)
+- Biometric measurements (biometrics.csv)
+
+## Methodology
+1. **Database Design:** Created a MySQL database with tables for player information, physical test results, and biometric measurements.
+2. **Data Ingestion:** Developed Python scripts to read data from Excel files and populate the database tables.
+3. **Data Update:** Implemented Python scripts to update the database tables with new data.
+4. **Query Execution:** Enabled the execution of any query to facilitate research and analysis of the data.
+
+## Conclusions
+One of the most valuable outcomes was the ability to profile the ideal player for each position, aiding in recruitment efforts to surpass established standards. Additionally, we could identify top athletes and project their future performance within the team.
 
 ## Project Structure
 ```
 Borregos_FBA
-├── data
-│   ├── players.csv
+├── .env
+├── .gitignore
+├── .vscode/
+│   └── settings.json
+├── data/
+│   ├── biometrics.csv
+│   ├── fba_lm.xlsx
 │   ├── physical_tests.csv
-│   └── biometrics.csv
-├── scripts
-│   ├── insert_data.py
-│   └── update_data.py
-├── sql
-│   ├── create_tables.sql
-│   └── insert_initial_data.sql
+│   ├── players.csv
+│   ├── reporte.xlsx
+│   └── reporte2.xlsx
+├── demo_conn.session.sql
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+├── scripts/
+│   ├── insert_data.py
+│   ├── reports.py
+│   ├── reports2.py
+│   └── update_data.py
+└── sql/
+    ├── create_tables.sql
+    └── retrive.sql
 ```
 
-## File Descriptions
 
-- **data/players.csv**: Contains player data including first name, middle name, last name (paternal), last name (maternal), date of birth, position, academic program, and date of entry to the team.
-
-- **data/physical_tests.csv**: Stores data related to physical tests for players, including test date and various performance metrics.
-
-- **data/biometrics.csv**: Holds biometric measurement data for players, including date, height, weight, ACL, mass, MME, BMI, PGC, AEC_Act, protein, and minerals.
-
-- **scripts/insert_data.py**: Python script for inserting new player data into the database from the CSV files.
-
-- **scripts/update_data.py**: Python script for managing updates to existing player data, physical test results, or biometric measurements from the CSV files.
-
-- **sql/create_tables.sql**: SQL script containing commands to create the three tables (data_player, physical_test, and biometric) in the MySQL database.
-
-- **sql/insert_initial_data.sql**: SQL script with commands to insert initial data into the tables after creation.
-
-- **requirements.txt**: Lists the Python package dependencies required for the project, such as libraries for database interaction and CSV processing.
-
-## Setup Instructions
-1. Ensure you have MySQL installed and running.
-2. Create a new database named `Borregos_FBA`.
-3. Run the `sql/create_tables.sql` script to create the necessary tables.
-4. Use the `sql/insert_initial_data.sql` script to populate the tables with initial data.
-5. Install required Python packages listed in `requirements.txt`.
-6. Use the provided Python scripts to manage player data and updates.
-
-## Usage
-- Use `insert_data.py` to add new players and their test results.
-- Use `update_data.py` to update existing player information or test results.
-
-## Future Enhancements
-Additional tables and features may be added as the project evolves to accommodate more data and functionality.
+## Future Work
+Future efforts will focus on identifying relationships between test results and player performance, providing deeper insights into player development and team success.
